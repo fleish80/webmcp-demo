@@ -1,0 +1,57 @@
+.wire-log {
+  margin-block: 14px 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wire-entry {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+}
+
+.wire-arrow {
+  font-weight: 700;
+}
+
+.wire-request .wire-arrow {
+  color: #1f6feb;
+}
+
+.wire-response .wire-arrow {
+  color: #1f883d;
+}
+
+.wire-error .wire-arrow {
+  color: #cf222e;
+}
+
+.wire-text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.wire-response .wire-text {
+  color: #1a7f37;
+}
+
+.wire-error .wire-text {
+  color: #cf222e;
+}
+
+.fade-in {
+  animation: fade-in 0.35s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

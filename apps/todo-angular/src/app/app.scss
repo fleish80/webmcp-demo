@@ -1,0 +1,47 @@
+.page-layout {
+  display: flex;
+  min-block-size: 100vh;
+}
+
+.content-pane {
+  flex: 1;
+  padding: 32px;
+  max-inline-size: 640px;
+}
+
+.inspector-pane {
+  margin-inline-start: auto;
+  border-inline-start: 1px solid #d0d7de;
+}
+
+.app-nav {
+  display: flex;
+  gap: 12px;
+  margin-block-end: 24px;
+}
+
+.nav-link {
+  padding-block: 6px;
+  padding-inline: 12px;
+  border-radius: 6px;
+  color: #1f2328;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: #eaeef2;
+}
+
+.nav-active {
+  background: #ddf4ff;
+  color: #0969da;
+}
+
+.inspector-placeholder {
+  inline-size: 380px;
+  padding: 16px;
+  background: #101418;
+  color: #8b949e;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+}

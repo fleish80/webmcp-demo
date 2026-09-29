@@ -1,0 +1,23 @@
+<section class="section" data-section="problem">
+  <h2 class="section-title">1 · The problem</h2>
+  <div class="compare">
+    <div class="compare-card compare-bad">
+      <h3 class="compare-title">Without WebMCP</h3>
+      <p class="compare-flow">agent → screenshot / DOM → guess a selector → move mouse → click → hope</p>
+      <ul class="compare-list">
+        <li>Slow: many round-trips per action</li>
+        <li>Fragile: any redesign breaks the agent</li>
+        <li>Blind: the agent infers meaning from pixels</li>
+      </ul>
+    </div>
+    <div class="compare-card compare-good">
+      <h3 class="compare-title">With WebMCP</h3>
+      <p class="compare-flow">agent → <code>increment({ amount: 5 })</code> → done</p>
+      <ul class="compare-list">
+        <li>One call, typed arguments, structured result</li>
+        <li>Survives redesigns: tools are an API, not pixels</li>
+        <li>Runs your real app code, in the user's own session</li>
+      </ul>
+    </div>
+  </div>
+</section>

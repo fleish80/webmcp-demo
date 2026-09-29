@@ -1,0 +1,16 @@
+@let actor = lastActor();
+<span class="counter-value">{{ count() }}</span>
+<button type="button" class="counter-button" (click)="humanIncrement()">+1 (you click)</button>
+<span class="counter-actor">
+  @switch (actor) {
+    @case ('agent') {
+      last changed by 🤖 the agent
+    }
+    @case ('you') {
+      last changed by 👤 you
+    }
+    @default {
+      untouched so far
+    }
+  }
+</span>

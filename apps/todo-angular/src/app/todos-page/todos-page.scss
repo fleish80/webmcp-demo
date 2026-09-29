@@ -1,0 +1,30 @@
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.todo-enter {
+  animation: todo-enter 0.35s ease-out;
+}
+
+.todo-leave {
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+}
+
+@keyframes todo-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.todo-empty {
+  padding-block: 10px;
+  color: #656d76;
+}

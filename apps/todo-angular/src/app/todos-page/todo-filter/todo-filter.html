@@ -1,0 +1,11 @@
+@for (option of filters; track option) {
+  <button
+    type="button"
+    class="filter-button"
+    [class.filter-active]="filter() === option"
+    (click)="filter.set(option)"
+  >
+    {{ option }}
+  </button>
+}
+<span class="filter-count">{{ visible() }} / {{ total() }}</span>

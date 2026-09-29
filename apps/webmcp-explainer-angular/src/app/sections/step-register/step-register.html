@@ -1,0 +1,25 @@
+<app-step-section [number]="3" title="The page registers a tool — the Angular way">
+  <p class="section-text">
+    The raw API is <code>document.modelContext.registerTool(…)</code>. Angular wraps it in
+    <code>declareExperimentalWebMcpTool</code>, which adds two things: the tool's lifetime is tied to
+    an <strong>injector</strong> (destroy the injector → tool unregistered), and <code>execute</code>
+    runs in the <strong>injection context</strong>, so it can <code>inject()</code> your services.
+  </p>
+  <app-code-block [code]="snippet" />
+  <app-run-button
+    label="Run declareExperimentalWebMcpTool()"
+    doneLabel="✓ registered"
+    [done]="lab.registered()"
+    (run)="lab.register()"
+  />
+  @if (lab.registered()) {
+    <div class="step-result" animate.enter="fade-in">
+      <p class="step-note">
+        Registered. Compared with the raw API, note two differences: Angular returns a
+        <em>plain value</em> from <code>execute</code> and serializes it for the agent (the raw API
+        convention is an MCP <code>&#123; content: [...] &#125;</code> block), and nothing here
+        manages an <code>AbortSignal</code> — the injector does that for you.
+      </p>
+    </div>
+  }
+</app-step-section>

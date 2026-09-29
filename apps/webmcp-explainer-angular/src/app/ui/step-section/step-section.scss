@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  margin-block-start: 48px;
+  transition: opacity 0.4s;
+}
+
+:host(.section-locked) {
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
+}
+
+.section-title {
+  margin-block: 0 10px;
+  font-size: 22px;
+}

@@ -1,0 +1,15 @@
+<ol class="wire-log">
+  @for (entry of entries(); track $index) {
+    @let direction = entry.direction;
+    <li
+      class="wire-entry"
+      animate.enter="fade-in"
+      [class.wire-request]="direction === 'request'"
+      [class.wire-response]="direction === 'response'"
+      [class.wire-error]="direction === 'error'"
+    >
+      <span class="wire-arrow">{{ direction === 'request' ? '→' : direction === 'response' ? '←' : '✗' }}</span>
+      <pre class="wire-text">{{ entry.text }}</pre>
+    </li>
+  }
+</ol>

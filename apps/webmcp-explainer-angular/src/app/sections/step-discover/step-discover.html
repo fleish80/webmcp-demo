@@ -1,0 +1,23 @@
+<app-step-section [number]="4" title="An agent discovers the tools" [locked]="!lab.registered()">
+  <p class="section-text">
+    This half of the protocol is <strong>not</strong> Angular's job — Angular only helps the page
+    <em>provide</em> tools. An agent uses the standard browser API: <code>getTools()</code> returns
+    every registered tool with its schema (a <code>toolchange</code> event signals updates).
+  </p>
+  <app-code-block [code]="snippet" />
+  <app-run-button
+    [label]="lab.discoveredJson() ? 'Run getTools() again' : 'Run getTools()'"
+    [disabled]="!lab.registered()"
+    (run)="lab.discover()"
+  />
+  @if (lab.discoveredJson(); as json) {
+    <div class="step-result" animate.enter="fade-in">
+      <pre class="output-block">{{ json }}</pre>
+      <p class="step-note">
+        This JSON is exactly what an AI model gets as its "tool definitions" — the same shape MCP
+        servers use. The description and schema are prompt material: write them for the model, not
+        for humans.
+      </p>
+    </div>
+  }
+</app-step-section>

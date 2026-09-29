@@ -1,0 +1,13 @@
+<h1 class="hero-title">WebMCP, explained by doing <span class="hero-flavor">Angular edition</span></h1>
+<p class="hero-lead">
+  WebMCP is an emerging W3C browser standard with one job: let a web page hand AI agents a set of
+  <strong>typed functions</strong> — called <strong>tools</strong> — instead of making them click
+  around the UI. This page walks through the protocol with Angular 22's experimental WebMCP support.
+  Everything runs for real, in this tab, right now.
+</p>
+<p class="hero-backend">
+  WebMCP backend in this tab:
+  <span class="badge" [class.badge-native]="backend === 'native'" [class.badge-polyfill]="backend === 'polyfill'">
+    {{ backend }}
+  </span>
+</p>

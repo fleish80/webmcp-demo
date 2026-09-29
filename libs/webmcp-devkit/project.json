@@ -1,0 +1,11 @@
+{
+  "name": "webmcp-devkit",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/webmcp-devkit/src",
+  "projectType": "library",
+  "tags": [
+    "scope:shared"
+  ],
+  "// targets": "to see all targets run: nx show project webmcp-devkit --web",
+  "targets": {}
+}

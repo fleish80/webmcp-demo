@@ -1,0 +1,20 @@
+<section class="section" data-section="recap" data-requires="called">
+  <h2 class="section-title">6 · That's the whole protocol</h2>
+  <ul class="recap-list">
+    <li><strong>Pages provide</strong>: <code>registerTool({ name, description, inputSchema, execute })</code>.</li>
+    <li><strong>Agents consume</strong>: <code>getTools()</code> to discover, then call with schema-valid arguments.</li>
+    <li><strong>State stays on the page</strong>: the agent used your session, your code, in front of your eyes — no separate server, no separate login.</li>
+  </ul>
+  <p class="section-text">
+    Who are the agents in practice? Chrome's built-in agent surface (experimental, behind a flag),
+    browser extensions that bridge tools to Claude/ChatGPT (MCP-B), and automation harnesses like
+    Playwright MCP. No stable browser ships <code>document.modelContext</code> unflagged yet, which
+    is why this page loaded a polyfill if needed — see the badge at the top.
+  </p>
+  <p class="section-text">
+    Next steps in this workspace: <code>todo-vanilla</code> (port 4210) adds multiple tools,
+    declarative <code>&lt;form toolname="…"&gt;</code> tools, and a live inspector panel;
+    <code>todo-angular</code> (port 4211) shows Angular 22's wrappers — DI-aware tools, route-scoped
+    registration, and Signal Forms that become tools automatically.
+  </p>
+</section>

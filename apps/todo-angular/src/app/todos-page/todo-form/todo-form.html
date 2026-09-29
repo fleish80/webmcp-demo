@@ -1,0 +1,26 @@
+<form class="add-form" [formRoot]="addForm">
+  <div class="add-row">
+    <input #textInput class="add-input" placeholder="What needs doing?" [formField]="addForm.text" />
+    <select class="add-priority" [formField]="addForm.priority">
+      <option value="low">low</option>
+      <option value="medium">medium</option>
+      <option value="high">high</option>
+    </select>
+    <button type="submit" class="add-button">Add</button>
+  </div>
+  <input class="add-input" placeholder="Notes (optional)" [formField]="addForm.notes" />
+  @let textState = addForm.text();
+  @if (textState.touched()) {
+    @for (error of textState.errors(); track error.kind) {
+      <p class="add-error" animate.enter="fade-in">{{ error.message }}</p>
+    }
+  }
+  @for (error of addForm.notes().errors(); track error.kind) {
+    <p class="add-error" animate.enter="fade-in">{{ error.message }}</p>
+  }
+  <p class="add-hint">
+    This form is a Signal Form exposed as the <code>addDetailedTodo</code> WebMCP tool — its JSON
+    schema is inferred from the model and the <code>required</code> / <code>minLength</code> /
+    <code>maxLength</code> validators.
+  </p>
+</form>

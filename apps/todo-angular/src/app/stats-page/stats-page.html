@@ -1,0 +1,28 @@
+<h1 class="page-title">Stats</h1>
+
+<div class="stats-grid">
+  <div class="stats-card">
+    <span class="stats-value">{{ openCount() }}</span>
+    <span class="stats-label">open</span>
+  </div>
+  <div class="stats-card">
+    <span class="stats-value">{{ doneCount() }}</span>
+    <span class="stats-label">done</span>
+  </div>
+</div>
+
+<button type="button" class="stats-copy" (click)="copyStats()">Copy stats as JSON</button>
+@if (exported(); as result) {
+  <p class="stats-copy-status" animate.enter="fade-in">
+    {{ result.copied ? '✓ copied to the clipboard' : 'clipboard unavailable — here is the export:' }}
+  </p>
+  <pre class="stats-exported" animate.enter="fade-in">{{ result.json }}</pre>
+}
+
+<p class="stats-hint">
+  This route provides the <code>exportStats</code> tool via route-level
+  <code>provideExperimentalWebMcpTools</code>. Watch the Inspector: the tool appears when you enter
+  this page and disappears when you navigate away (thanks to
+  <code>withExperimentalAutoCleanupInjectors</code>). The copy button uses a service loaded lazily
+  with <code>injectAsync</code>, prefetched <code>onIdle</code>.
+</p>

@@ -1,0 +1,43 @@
+.hero-title {
+  margin-block: 0 12px;
+  font-size: 34px;
+}
+
+.hero-flavor {
+  font-size: 16px;
+  font-weight: 500;
+  color: #dd0031;
+  vertical-align: middle;
+}
+
+.hero-lead {
+  margin-block: 0 12px;
+  font-size: 17px;
+}
+
+.hero-backend {
+  margin: 0;
+  font-size: 14px;
+  color: #656d76;
+}
+
+.badge {
+  padding-block: 2px;
+  padding-inline: 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: #d0d7de;
+  color: #1f2328;
+}
+
+.badge-native {
+  background: #1f6feb;
+  color: #fff;
+}
+
+.badge-polyfill {
+  background: #bf8700;
+  color: #fff;
+}

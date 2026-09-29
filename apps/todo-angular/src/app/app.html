@@ -1,0 +1,14 @@
+<div class="page-layout">
+  <main class="content-pane">
+    <nav class="app-nav">
+      <a routerLink="/todos" routerLinkActive="nav-active" class="nav-link">Todos</a>
+      <a routerLink="/stats" routerLinkActive="nav-active" class="nav-link">Stats</a>
+    </nav>
+    <router-outlet />
+  </main>
+  @defer (on idle) {
+    <app-tool-inspector class="inspector-pane" />
+  } @placeholder {
+    <div class="inspector-pane inspector-placeholder">Loading the Tool Inspector…</div>
+  }
+</div>

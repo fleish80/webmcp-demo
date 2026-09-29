@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Todo Vanilla — WebMCP demo</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div class="page-layout">
+      <main class="todo-pane">
+        <h1 class="app-title">Todos <span class="app-subtitle">vanilla TS + raw WebMCP API</span></h1>
+
+        <form class="add-form" data-view="add-form">
+          <input class="add-input" name="text" placeholder="What needs doing?" required />
+          <select class="add-priority" name="priority">
+            <option value="low">low</option>
+            <option value="medium" selected>medium</option>
+            <option value="high">high</option>
+          </select>
+          <button type="submit" class="add-button">Add</button>
+        </form>
+
+        <section data-view="todo-list">
+          <ul class="todo-list" data-role="list"></ul>
+          <button type="button" class="clear-button" data-action="clear-completed">Clear completed</button>
+        </section>
+
+        <section class="declarative-section">
+          <h2 class="declarative-title">Declarative tool</h2>
+          <p class="declarative-hint">
+            This form carries <code>toolname</code>/<code>tooldescription</code> attributes — no
+            JavaScript registration at all. Both native Chrome and the polyfill scan the DOM and
+            expose it as the <code>addTodoViaForm</code> tool; an agent call fills the fields and
+            submits, and the <code>submit</code> event's <code>agentInvoked</code> flag tells the
+            page who did it.
+          </p>
+          <form
+            class="declarative-form"
+            data-view="declarative-form"
+            toolname="addTodoViaForm"
+            tooldescription="Add a to-do item by filling and submitting this form."
+            toolautosubmit
+          >
+            <input
+              class="add-input"
+              name="text"
+              placeholder="Declarative task…"
+              required
+              toolparamdescription="The task description"
+            />
+            <button type="submit" class="add-button">Add via form</button>
+          </form>
+        </section>
+      </main>
+      <div id="inspector-root" class="inspector-pane"></div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

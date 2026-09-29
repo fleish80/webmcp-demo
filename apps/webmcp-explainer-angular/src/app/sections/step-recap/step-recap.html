@@ -1,0 +1,31 @@
+<app-step-section [number]="7" title="That's the whole protocol" [locked]="!lab.destroyed()">
+  <ul class="recap-list">
+    <li>
+      <strong>Pages provide</strong>:
+      <code>registerTool(&#123; name, description, inputSchema, execute &#125;)</code> — in Angular,
+      <code>declareExperimentalWebMcpTool</code> / <code>provideExperimentalWebMcpTools</code>, tied
+      to an injector.
+    </li>
+    <li>
+      <strong>Agents consume</strong>: <code>getTools()</code> to discover, then call with
+      schema-valid arguments. Standard API, no framework involved.
+    </li>
+    <li>
+      <strong>State stays on the page</strong>: the agent used your session, your services, in front
+      of your eyes — no separate server, no separate login.
+    </li>
+  </ul>
+  <p class="section-text">
+    Who are the agents in practice? Chrome's built-in agent surface (experimental, behind a flag),
+    browser extensions that bridge tools to Claude/ChatGPT (MCP-B), and automation harnesses like
+    Playwright MCP. No stable browser ships <code>document.modelContext</code> unflagged yet, which
+    is why <code>main.ts</code> awaits a polyfill <em>before</em> <code>bootstrapApplication</code>
+    — Angular silently skips registration if the API is missing.
+  </p>
+  <p class="section-text">
+    Next in this workspace: <code>todo-angular</code> (port 4211) shows the remaining Angular
+    surfaces — app-level <code>provideExperimentalWebMcpTools</code>, route-scoped tools with
+    <code>withExperimentalAutoCleanupInjectors</code>, and Signal Forms that become tools via
+    <code>provideExperimentalWebMcpForms</code>.
+  </p>
+</app-step-section>

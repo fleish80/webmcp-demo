@@ -1,0 +1,17 @@
+<section class="section" data-section="call" data-requires="discovered">
+  <h2 class="section-title">5 · The agent calls a tool — be the agent</h2>
+  <p class="section-text">
+    Now play the agent's role yourself. Edit the arguments (they must match the schema) and call
+    the tool. Watch the counter above — your <code>execute</code> callback runs against the real
+    page state, and the result travels back as data.
+  </p>
+  <div class="agent-console">
+    <div class="agent-row">
+      <code class="agent-label">increment(</code>
+      <input class="agent-args" data-role="args" value='{ "amount": 5 }' spellcheck="false" />
+      <code class="agent-label">)</code>
+      <button type="button" class="run-button" data-action="call">▶ Call as agent</button>
+    </div>
+    <ol class="wire-log" data-role="wire-log"></ol>
+  </div>
+</section>

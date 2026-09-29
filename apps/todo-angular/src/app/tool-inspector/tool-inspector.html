@@ -1,0 +1,44 @@
+<header class="inspector-header">
+  <h2 class="inspector-title">WebMCP Tool Inspector</h2>
+  <span
+    class="inspector-badge"
+    [class.inspector-badge-native]="store.backend === 'native'"
+    [class.inspector-badge-polyfill]="store.backend === 'polyfill'"
+  >
+    {{ store.backend }}
+  </span>
+</header>
+
+<section class="inspector-tools">
+  @if (store.unavailable()) {
+    <p class="inspector-empty">
+      This modelContext implementation does not expose getTools() — tools are registered but cannot
+      be listed here.
+    </p>
+  }
+  @for (tool of store.tools(); track tool.name) {
+    <app-tool-card [tool]="tool" />
+  } @empty {
+    @if (!store.unavailable()) {
+      <p class="inspector-empty">No tools registered yet.</p>
+    }
+  }
+</section>
+
+<section class="inspector-log-section">
+  <h3 class="inspector-log-title">Activity log</h3>
+  <ol class="inspector-log">
+    @for (entry of store.log(); track entry) {
+      <li
+        class="log-entry"
+        animate.enter="fade-in"
+        [class.log-lifecycle]="entry.kind === 'lifecycle'"
+        [class.log-call]="entry.kind === 'call'"
+        [class.log-error]="entry.kind === 'error'"
+      >
+        <span class="log-time">{{ entry.at | date: 'mediumTime' }}</span>
+        <pre class="log-text">{{ entry.text }}</pre>
+      </li>
+    }
+  </ol>
+</section>

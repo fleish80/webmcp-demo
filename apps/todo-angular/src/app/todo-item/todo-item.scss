@@ -1,0 +1,67 @@
+:host {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-block: 10px;
+  padding-inline: 12px;
+  border: 1px solid #d0d7de;
+  border-inline-start: 4px solid #d0d7de;
+  border-radius: 6px;
+  background: #fff;
+}
+
+:host(.priority-high) {
+  border-inline-start-color: #cf222e;
+}
+
+:host(.priority-medium) {
+  border-inline-start-color: #bf8700;
+}
+
+:host(.priority-low) {
+  border-inline-start-color: #1f883d;
+}
+
+:host(.todo-agent) {
+  background: #ddf4ff;
+}
+
+:host(.todo-done) .todo-text {
+  text-decoration: line-through;
+  color: #656d76;
+}
+
+.todo-id {
+  color: #656d76;
+  font-size: 12px;
+}
+
+.todo-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-notes {
+  color: #656d76;
+}
+
+.todo-source {
+  font-size: 12px;
+  color: #656d76;
+}
+
+.todo-complete,
+.todo-remove {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #f6f8fa;
+  cursor: pointer;
+  padding-block: 4px;
+  padding-inline: 8px;
+}
+
+.todo-complete:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

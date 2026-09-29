@@ -1,0 +1,10 @@
+@let finished = done() && !!doneLabel();
+<button
+  type="button"
+  class="run-button"
+  [class.run-button-danger]="danger()"
+  [disabled]="disabled() || finished"
+  (click)="run.emit()"
+>
+  {{ finished ? doneLabel() : '▶ ' + label() }}
+</button>

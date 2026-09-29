@@ -1,0 +1,18 @@
+<section class="section" data-section="discover" data-requires="registered">
+  <h2 class="section-title">4 · An agent discovers the tools</h2>
+  <p class="section-text">
+    An agent arriving at this page doesn't guess — it asks. <code>getTools()</code> returns every
+    registered tool with its schema. This (plus a <code>toolchange</code> event) is the entire
+    discovery story.
+  </p>
+  <pre class="code-block"><code>const tools = await document.modelContext.getTools();</code></pre>
+  <button type="button" class="run-button" data-action="discover">▶ Run getTools()</button>
+  <div class="step-result" data-role="result" hidden>
+    <pre class="output-block" data-role="output"></pre>
+    <p class="step-note">
+      This JSON is exactly what an AI model gets as its "tool definitions" — the same shape MCP
+      servers use. The description and schema are prompt material: write them for the model, not
+      for humans.
+    </p>
+  </div>
+</section>

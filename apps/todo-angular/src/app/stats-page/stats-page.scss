@@ -1,0 +1,57 @@
+.stats-grid {
+  display: flex;
+  gap: 16px;
+  margin-block-end: 16px;
+}
+
+.stats-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-block: 16px;
+  padding-inline: 32px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.stats-value {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.stats-label {
+  color: #656d76;
+}
+
+.stats-copy {
+  padding-block: 6px;
+  padding-inline: 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.stats-exported {
+  margin-block: 12px 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #0d1117;
+  color: #7ee787;
+  font-size: 12px;
+}
+
+.stats-hint {
+  margin-block: 16px 0;
+  font-size: 13px;
+  color: #656d76;
+  max-inline-size: 480px;
+}
+
+.stats-copy-status {
+  margin-block: 10px 0;
+  font-size: 13px;
+  color: #656d76;
+}

@@ -1,0 +1,22 @@
+@let item = tool();
+<h3 class="card-name">{{ item.name }}</h3>
+<p class="card-description">{{ item.description }}</p>
+<details class="card-schema">
+  <summary class="card-schema-summary">inputSchema</summary>
+  <pre class="card-schema-text">{{ schemaJson() }}</pre>
+</details>
+<div class="card-run">
+  <textarea class="card-args" rows="2" spellcheck="false" [value]="args()" (input)="onArgsInput($event)"></textarea>
+  <button
+    type="button"
+    class="card-button"
+    [disabled]="!canExecute"
+    [title]="canExecute ? '' : 'This modelContext implementation does not expose executeTool().'"
+    (click)="run()"
+  >
+    Call tool
+  </button>
+</div>
+@if (result(); as callResult) {
+  <pre class="card-result" [class.card-result-failed]="callResult.failed">{{ callResult.text }}</pre>
+}

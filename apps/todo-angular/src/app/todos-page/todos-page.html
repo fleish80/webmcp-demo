@@ -1,0 +1,23 @@
+<h1 class="page-title">Todos <span class="page-subtitle">Angular 22 + WebMCP providers</span></h1>
+
+<app-todo-form />
+
+@let count = todos().length;
+@if (count > 0) {
+  <app-todo-filter animate.enter="fade-in" [(filter)]="filter" [visible]="visibleTodos().length" [total]="count" />
+}
+
+<ul class="todo-list">
+  @for (todo of visibleTodos(); track todo.id) {
+    <app-todo-item
+      class="todo-item"
+      animate.enter="todo-enter"
+      animate.leave="todo-leave"
+      [todo]="todo"
+      (complete)="complete($event)"
+      (remove)="remove($event)"
+    />
+  } @empty {
+    <li class="todo-empty">Nothing here — add a task, or ask an agent to.</li>
+  }
+</ul>

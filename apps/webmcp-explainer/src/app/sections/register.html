@@ -1,0 +1,30 @@
+<section class="section" data-section="register">
+  <h2 class="section-title">3 · The page registers a tool</h2>
+  <p class="section-text">
+    This is ~90% of WebMCP. The page describes one capability: a <code>name</code>, a
+    <code>description</code> the agent uses to decide <em>when</em> to call it, a JSON Schema for the
+    arguments, and an <code>execute</code> callback — plain app code.
+  </p>
+  <pre class="code-block"><code>document.modelContext.registerTool({
+  name: 'increment',
+  description: 'Increase the page counter by a given amount.',
+  inputSchema: {
+    type: 'object',
+    properties: {
+      amount: { type: 'number', description: 'How much to add. Defaults to 1.' },
+    },
+  },
+  execute: ({ amount }) => {
+    counter.increment(amount ?? 1, 'agent');
+    return { content: [{ type: 'text', text: `Count is now ${counter.count}.` }] };
+  },
+});</code></pre>
+  <button type="button" class="run-button" data-action="register">▶ Run registerTool()</button>
+  <div class="step-result" data-role="result" hidden>
+    <p class="step-note">
+      Registered. The browser now holds this tool for the lifetime of the page (or until the page
+      aborts an <code>AbortSignal</code> it passed at registration). Nothing visible changed for
+      humans — tools are a parallel entrance, not UI.
+    </p>
+  </div>
+</section>

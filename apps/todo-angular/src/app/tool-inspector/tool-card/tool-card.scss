@@ -1,0 +1,82 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  background: #161b22;
+}
+
+.card-name {
+  margin: 0;
+  font-size: 13px;
+  color: #79c0ff;
+}
+
+.card-description {
+  margin: 0;
+  color: #8b949e;
+}
+
+.card-schema-summary {
+  cursor: pointer;
+  color: #8b949e;
+}
+
+.card-schema-text {
+  margin-block: 4px 0;
+  padding: 6px;
+  border-radius: 6px;
+  background: #0d1117;
+  overflow-x: auto;
+}
+
+.card-run {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+}
+
+.card-args {
+  flex: 1;
+  padding: 4px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #e6edf3;
+  font-family: inherit;
+  font-size: 11px;
+  resize: vertical;
+}
+
+.card-button {
+  padding-block: 5px;
+  padding-inline: 10px;
+  border: none;
+  border-radius: 6px;
+  background: #238636;
+  color: #fff;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.card-button:disabled {
+  background: #30363d;
+  cursor: not-allowed;
+}
+
+.card-result {
+  margin: 0;
+  padding: 6px;
+  border-radius: 6px;
+  background: #0d1117;
+  color: #7ee787;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+.card-result-failed {
+  color: #ffa198;
+}

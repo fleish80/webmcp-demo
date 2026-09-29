@@ -1,0 +1,11 @@
+@let item = todo();
+<span class="todo-id">#{{ item.id }}</span>
+<span class="todo-text">
+  {{ item.text }}
+  @if (item.notes) {
+    <small class="todo-notes">{{ item.notes }}</small>
+  }
+</span>
+<span class="todo-source">{{ item.source === 'agent' ? '🤖 agent' : '👤 you' }}</span>
+<button type="button" class="todo-complete" [disabled]="item.done" (click)="complete.emit(item.id)">✓</button>
+<button type="button" class="todo-remove" (click)="remove.emit(item.id)">✕</button>

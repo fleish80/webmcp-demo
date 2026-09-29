@@ -1,0 +1,26 @@
+<app-step-section [number]="6" title="Angular's superpower: lifecycle" [locked]="!lab.called()">
+  <p class="section-text">
+    In step 3 the tool was declared against a dedicated child injector. Destroying that injector
+    unregisters the tool — no bookkeeping in your code. This is exactly what happens for tools
+    declared in a route's <code>providers</code> when the user navigates away, or in a component when
+    it is destroyed: <strong>the agent's tool list always mirrors what is actually on screen.</strong>
+  </p>
+  <app-code-block [code]="snippet" />
+  <app-run-button
+    label="Destroy the injector"
+    doneLabel="✓ injector destroyed"
+    [done]="lab.destroyed()"
+    [disabled]="!lab.called()"
+    [danger]="true"
+    (run)="lab.destroyInjector()"
+  />
+  @if (lab.destroyed()) {
+    <div class="step-result" animate.enter="fade-in">
+      <p class="step-note">
+        Look at step 4's output: <code>getTools()</code> now returns <code>[]</code>. Try "Call as
+        agent" again — it fails, because from the agent's point of view the capability no longer
+        exists.
+      </p>
+    </div>
+  }
+</app-step-section>

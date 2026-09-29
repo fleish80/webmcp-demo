@@ -1,0 +1,34 @@
+<app-step-section [number]="5" title="The agent calls a tool — be the agent" [locked]="!lab.discoveredJson()">
+  <p class="section-text">
+    Now play the agent's role yourself. Edit the arguments (they must match the schema) and call the
+    tool. Watch the counter above — your <code>execute</code> callback runs inside Angular's injection
+    context against the real <code>CounterStore</code> signal, and the result travels back as data.
+  </p>
+  <div class="agent-console">
+    @let check = lab.argsCheck();
+    <div class="agent-row">
+      <code class="agent-label">increment(</code>
+      <input class="agent-args" [value]="lab.agentArgs()" (input)="onArgsInput($event)" spellcheck="false" />
+      <code class="agent-label">)</code>
+      <app-run-button
+        label="Call as agent"
+        [disabled]="!lab.discoveredJson() || check !== 'valid'"
+        (run)="lab.callAsAgent()"
+      />
+    </div>
+    <p class="agent-args-check" [class.agent-args-invalid]="check === 'invalid'">
+      @switch (check) {
+        @case ('checking') {
+          checking JSON…
+        }
+        @case ('invalid') {
+          ✗ not valid JSON — fix the arguments before calling
+        }
+        @default {
+          ✓ valid JSON (checked with a debounced() signal, 250 ms after you stop typing)
+        }
+      }
+    </p>
+    <app-wire-log [entries]="lab.wireLog()" />
+  </div>
+</app-step-section>
