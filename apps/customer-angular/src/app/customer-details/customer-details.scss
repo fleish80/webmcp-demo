@@ -1,0 +1,123 @@
+.customer-switcher {
+  display: flex;
+  gap: 8px;
+  margin-block-end: 16px;
+}
+
+.switcher-button {
+  padding-block: 6px;
+  padding-inline: 14px;
+  border: 1px solid #d0d7de;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.switcher-active {
+  border-color: #0969da;
+  background: #ddf4ff;
+  color: #0969da;
+}
+
+.customer-card {
+  padding: 24px;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-block-end: 20px;
+}
+
+.card-name {
+  margin: 0;
+  font-size: 22px;
+}
+
+.card-company {
+  margin: 0;
+  color: #656d76;
+}
+
+.health-badge {
+  padding-block: 4px;
+  padding-inline: 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.health-healthy {
+  background: #dafbe1;
+  color: #1a7f37;
+}
+
+.health-attention {
+  background: #fff8c5;
+  color: #9a6700;
+}
+
+.health-risk {
+  background: #ffebe9;
+  color: #cf222e;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+
+.fact-label {
+  font-size: 12px;
+  color: #656d76;
+}
+
+.fact-value {
+  margin: 0;
+  font-size: 15px;
+}
+
+.risk {
+  margin-block-start: 20px;
+  padding-block-start: 16px;
+  border-block-start: 1px solid #d0d7de;
+}
+
+.risk-title {
+  margin-block: 0 8px;
+  font-size: 14px;
+}
+
+.risk-list {
+  margin: 0;
+  padding-inline-start: 20px;
+}
+
+.risk-item {
+  margin-block-end: 4px;
+  color: #cf222e;
+}
+
+.risk-none {
+  color: #1a7f37;
+}
+
+.fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}

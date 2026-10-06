@@ -1,0 +1,14 @@
+<main class="page">
+  <h1 class="page-title">Customer success <span class="page-subtitle">Angular 22 · WebMCP tools in app.config</span></h1>
+  <app-customer-details />
+  <aside class="tools-hint">
+    <h2 class="tools-hint-title">What an AI agent can do here</h2>
+    <p class="tools-hint-text">
+      <code>app.config.ts</code> registers five tools with <code>provideExperimentalWebMcpTools()</code>:
+      <code>list_customers</code>, <code>select_customer</code>, <code>get_current_customer_summary</code>,
+      <code>get_retention_risk</code> and <code>draft_customer_success_note</code>. They all read the
+      same <code>CustomerStore</code> this page renders — switch the customer and ask again, and the
+      answers change.
+    </p>
+  </aside>
+</main>

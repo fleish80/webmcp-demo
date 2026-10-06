@@ -1,0 +1,72 @@
+@let store = customerStore;
+@let customer = store.customer();
+@let health = store.health();
+
+<nav class="customer-switcher" aria-label="Select customer">
+  @for (option of store.customers; track option.id) {
+    <button
+      type="button"
+      class="switcher-button"
+      [class.switcher-active]="option.id === store.selectedId()"
+      [attr.aria-pressed]="option.id === store.selectedId()"
+      (click)="store.select(option.id)"
+    >
+      {{ option.name }}
+    </button>
+  }
+</nav>
+
+<article class="customer-card" animate.enter="fade-in">
+  <header class="card-header">
+    <div class="card-identity">
+      <h2 class="card-name">{{ customer.name }}</h2>
+      <p class="card-company">{{ customer.company }}</p>
+    </div>
+    <span
+      class="health-badge"
+      [class.health-healthy]="health === 'Healthy'"
+      [class.health-attention]="health === 'Needs attention'"
+      [class.health-risk]="health === 'At risk'"
+    >
+      {{ health }}
+    </span>
+  </header>
+
+  <dl class="facts">
+    <div class="fact">
+      <dt class="fact-label">Email</dt>
+      <dd class="fact-value">{{ customer.email }}</dd>
+    </div>
+    <div class="fact">
+      <dt class="fact-label">Plan</dt>
+      <dd class="fact-value">{{ customer.plan }} · {{ customer.annualContractValue | currency: 'USD' : 'symbol' : '1.0-0' }}/yr</dd>
+    </div>
+    <div class="fact">
+      <dt class="fact-label">Last login</dt>
+      <dd class="fact-value">{{ customer.daysSinceLastLogin }} day(s) ago</dd>
+    </div>
+    <div class="fact">
+      <dt class="fact-label">Open tickets</dt>
+      <dd class="fact-value">{{ customer.openTickets }} ({{ customer.unresolvedPriorityTickets }} priority)</dd>
+    </div>
+    <div class="fact">
+      <dt class="fact-label">Seats</dt>
+      <dd class="fact-value">{{ customer.seatsUsed }} / {{ customer.seatsPurchased }}</dd>
+    </div>
+    <div class="fact">
+      <dt class="fact-label">Payment failures</dt>
+      <dd class="fact-value">{{ customer.paymentFailures }}</dd>
+    </div>
+  </dl>
+
+  <section class="risk">
+    <h3 class="risk-title">Warning signs</h3>
+    <ul class="risk-list">
+      @for (reason of store.riskReasons(); track reason) {
+        <li class="risk-item">{{ reason }}</li>
+      } @empty {
+        <li class="risk-item risk-none">None — this account looks healthy.</li>
+      }
+    </ul>
+  </section>
+</article>

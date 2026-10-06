@@ -63,6 +63,7 @@ apps/webmcp-explainer          START HERE — interactive "WebMCP in 5 minutes" 
 apps/webmcp-explainer-angular  the same walkthrough, Angular edition (+ injector lifecycle) (port 4213)
 apps/todo-vanilla              plain TS + Vite — the raw document.modelContext API         (port 4210)
 apps/todo-angular              Angular 22 — all provider-based WebMCP wrappers             (port 4211)
+apps/customer-angular          Angular 22 — tools in app.config over a signal store        (port 4214)
 libs/webmcp-devkit             ensureModelContext() + the framework-free Tool Inspector panel
 ```
 
@@ -74,6 +75,7 @@ npm run start:explainer          # http://localhost:4212 — the guided intro
 npm run start:explainer-angular  # http://localhost:4213 — Angular edition
 npm run start:todo-vanilla       # http://localhost:4210
 npm run start:todo-angular       # http://localhost:4211
+npm run start:customer-angular   # http://localhost:4214
 npm run check                    # build + lint every project
 ```
 
@@ -101,6 +103,27 @@ and `ui/` holds the four shared primitives (`StepSection`, `CodeBlock`, `RunButt
 Every page shows the **Tool Inspector** on the right: live tool list (via `getTools()` +
 `toolchange`), manual invocation, and an activity log — so you can watch registrations and calls
 without any agent attached.
+
+## `customer-angular` — tools in `app.config.ts` over a signal store
+
+A customer-success screen, modelled on Brian Treese's "Angular v22 just added AI tools"
+([demo](https://github.com/brianmtreese/angular-webmcp-tools)). The whole WebMCP surface is one
+`provideExperimentalWebMcpTools([...])` call in `app.config.ts`; every `execute` does
+`inject(CustomerStore)` and reads the same signals the page renders, so the selected customer is
+the context the agent's answers are about.
+
+| Tool | Input | Returns |
+|---|---|---|
+| `list_customers` | — | every account with id, plan and health |
+| `select_customer` | `customerId` (enum) | switches the customer **on screen** |
+| `get_current_customer_summary` | — | the selected account's facts |
+| `get_retention_risk` | — | health, the warning signs, a recommended action |
+| `draft_customer_success_note` | — | an outreach email tuned to the risk level |
+
+`customers/customer.store.ts` is a `@Service()` holding one writable signal (the selected id);
+health and warning signs are `computed`s over the rules in `customers/customer-risk.ts`, which
+`list_customers` reuses so the list and the screen always agree. Compared with the video, this
+version adds a parameterised tool (`select_customer`) so the agent can change the page state itself.
 
 ## Feature → file map
 

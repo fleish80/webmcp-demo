@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "nx run-many -t serve --projects=webmcp-explainer,webmcp-explainer-angular,todo-vanilla,todo-angular --parallel=4",
+    "start": "nx run-many -t serve --projects=webmcp-explainer,webmcp-explainer-angular,todo-vanilla,todo-angular,customer-angular --parallel=5",
     "start:explainer": "nx serve webmcp-explainer",
     "start:explainer-angular": "nx serve webmcp-explainer-angular",
     "start:todo-vanilla": "nx serve todo-vanilla",
     "start:todo-angular": "nx serve todo-angular",
+    "start:customer-angular": "nx serve customer-angular",
     "build": "nx run-many -t build",
     "lint": "nx run-many -t lint",
     "check": "nx run-many -t build lint"
